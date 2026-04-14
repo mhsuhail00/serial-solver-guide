@@ -5,7 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
-#include <cstring>
+#include <string>
 #include <iomanip>
 #include <chrono>
 #include <ctime>
@@ -217,7 +217,7 @@ public:
         // dummy variables
         int ic1, ic2, ic3, ic4, irem;
 
-        // auto start = chrono::high_resolution_clock::now();
+        auto start = chrono::high_resolution_clock::now();
 
 
         // Read input file and initialize variables
@@ -873,9 +873,9 @@ public:
             }
         }
 
-        // auto end = chrono::high_resolution_clock::now();
-        // auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
-        // cout << "Time taken in Constructor: " << duration.count() << " ms" << endl;
+        auto end = chrono::high_resolution_clock::now();
+        auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
+        cout << "Time taken in Constructor: " << duration.count() << " ms" << endl;
 
     }
 
@@ -886,7 +886,7 @@ public:
         //----------------------------------------------------------
         // cout << "Starting time loop..." << endl;
 
-        // auto start = chrono::high_resolution_clock::now();
+        auto start = chrono::high_resolution_clock::now();
 
         double d2u[3];
         double conv[3];
@@ -1695,11 +1695,11 @@ public:
                 
                 for(int i = 0; i < n[0]; i++, uk_base += STRIDE_I, xother_base += STRIDE_I) {
                     if(k == 0) {
-                        u_data[uk_base] = -speed_amp * cos(2.0 * Pi * F * time) * x_data[xother_base + STRIDE_K];
+                        u_data[uk_base] = -speed_amp * cos(2.0 * Pi * F * time) * x_data[xother_base];
                         up_data[uk_base] = u_data[uk_base];
                     }
                     else {
-                        u_data[uk_base] = speed_amp * cos(2.0 * Pi * F * time) * x_data[xother_base - STRIDE_K];
+                        u_data[uk_base] = speed_amp * cos(2.0 * Pi * F * time) * x_data[xother_base];
                         up_data[uk_base] = u_data[uk_base];
                     }
                 }
@@ -2183,9 +2183,9 @@ public:
                 }
             }
 
-        // auto end = chrono::high_resolution_clock::now();
-        // auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
-        // cout << "Time taken in Time Loop: " << duration.count() << " ms" << endl;
+        auto end = chrono::high_resolution_clock::now();
+        auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
+        cout << "Time taken in Time Loop: " << duration.count() << " ms" << endl;
 
         }
 

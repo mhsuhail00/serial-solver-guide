@@ -1849,11 +1849,11 @@ public:
                 
                 for(int i = 0; i < n[0]; i++, uk_base += STRIDE_I, xother_base += STRIDE_I) {
                     if(k == 0) {
-                        u[uk_base] = -speed_amp * cos(2.0 * Pi * F * time) * x[xother_base + STRIDE_K];
+                        u[uk_base] = -speed_amp * cos(2.0 * Pi * F * time) * x[xother_base];
                         up[uk_base] = u[uk_base];
                     }
                     else {
-                        u[uk_base] = speed_amp * cos(2.0 * Pi * F * time) * x[xother_base - STRIDE_K];
+                        u[uk_base] = speed_amp * cos(2.0 * Pi * F * time) * x[xother_base];
                         up[uk_base] = u[uk_base];
                     }
                 }
